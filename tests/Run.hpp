@@ -1,15 +1,10 @@
 #ifndef ARGPARSE_TEST_RUN_HPP
 #define ARGPARSE_TEST_RUN_HPP
 
+#include "Log.hpp"
 #include "Tests.hpp"
 
-#include <fmt/core.h>
-
 #include <concepts>
-
-#ifndef STRINGIZE
-#   define STRINGIZE(x) #x
-#endif
 
 namespace argparse::Test
 {

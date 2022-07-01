@@ -1,8 +1,8 @@
 #include "Tests.hpp"
 
-#include <argparse/ArgumentParser.hpp>
+#include "Log.hpp"
 
-#include <fmt/core.h>
+#include <argparse/ArgumentParser.hpp>
 
 namespace argparse::Test::Tests
 {

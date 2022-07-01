@@ -1,6 +1,7 @@
 #ifndef ARGPARSE_ARGUMENT_HPP
 #define ARGPARSE_ARGUMENT_HPP
 
+#include <any>
 #include <span>
 #include <string>
 #include <vector>
@@ -24,6 +25,8 @@ namespace argparse
     };
 
     using enum ArgumentAction;
+
+    using ActionFn = std::function<void(void)>;
 
     class Argument
     {
@@ -52,7 +55,7 @@ namespace argparse
             return *this;
         }
 
-        Argument& action(ArgumentAction act, std::function<void()> fn)
+        Argument& action(ArgumentAction act, ActionFn> fn)
         {
             if (act == Invoke)
                 m_fn = std::move(fn);
@@ -81,7 +84,7 @@ namespace argparse
         std::string m_name;
         std::vector<std::string> m_alias;
         ArgumentAction m_action;
-        std::function<void()> m_fn;
+        ActionFn m_fn;
         std::string m_help;
     };
 }
