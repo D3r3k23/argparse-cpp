@@ -6,6 +6,10 @@ namespace argparse
     class ParsedArgs
     {
         friend class ArgumentParser;
+
+    public:
+
+    private:
     };
 }
 

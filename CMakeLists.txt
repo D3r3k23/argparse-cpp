@@ -1,26 +1,19 @@
-cmake_minimum_required(3.19)
+cmake_minimum_required(VERSION 3.19)
 
 project(argparse)
 
-if(CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR)
+if(${CMAKE_CURRENT_SOURCE_DIR} STREQUAL ${CMAKE_SOURCE_DIR})
     set(ARGPARSE_TOP_LEVEL TRUE)
 else()
     set(ARGPARSE_TOP_LEVEL FALSE)
 endif()
 
-# option(ARGPARSE_BUILD_TESTS "Build tests" OFF)
-# option(ARGPARSE_BUILD_EXAMPLES "Build examples" ARGPARSE_TOP_LEVEL)
+option(ARGPARSE_BUILD_TESTS "Build tests" ${ARGPARSE_TOP_LEVEL})
+option(ARGPARSE_BUILD_EXAMPLES "Build examples" ${ARGPARSE_TOP_LEVEL})
 
-add_library(argparse)
+add_library(argparse STATIC)
 add_subdirectory(src)
 add_subdirectory(lib)
-
-target_include_directories(argparse
-  PUBLIC
-    include
-  PRIVATE
-    src
-)
 
 set_target_properties(argparse
   PROPERTIES
@@ -29,9 +22,11 @@ set_target_properties(argparse
 )
 
 if(${ARGPARSE_BUILD_TESTS})
+    message("argparse: Building tests")
     add_subdirectory(tests)
 endif()
 
 if(${ARGPARSE_BUILD_EXAMPLES})
+    message("argparse: Building examples")
     add_subdirectory(examples)
 endif()

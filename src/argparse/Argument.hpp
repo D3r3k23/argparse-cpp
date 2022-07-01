@@ -1,6 +1,7 @@
 #ifndef ARGPARSE_ARGUMENT_HPP
 #define ARGPARSE_ARGUMENT_HPP
 
+#include <span>
 #include <string>
 #include <vector>
 #include <utility>
@@ -55,6 +56,18 @@ namespace argparse
         {
             if (act == Invoke)
                 m_fn = std::move(fn);
+
+            return *this;
+        }
+
+        Argument& choices(std::span<void*>)
+        {
+            return *this;
+        }
+
+        Argument& default()
+        {
+            return *this;
         }
 
         Argument& help(std::string msg)
