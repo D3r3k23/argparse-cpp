@@ -1,5 +1,7 @@
 # argparse-cpp
 
+[![Tests](https://github.com/D3r3k23/argparse-cpp/actions/workflows/test.yaml/badge.svg)](https://github.com/D3r3k23/argparse-cpp/actions/workflows/test.yaml)
+
 C++ command line argument parser similiar to Python's argparse
 
 ## Current plan for API usage

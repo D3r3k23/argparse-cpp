@@ -22,11 +22,11 @@ set_target_properties(argparse
 )
 
 if(${ARGPARSE_BUILD_TESTS})
-    message("argparse: Building tests")
+    message("argparse: Configuring tests")
     add_subdirectory(tests)
 endif()
 
 if(${ARGPARSE_BUILD_EXAMPLES})
-    message("argparse: Building examples")
+    message("argparse: Configuring examples")
     add_subdirectory(examples)
 endif()
