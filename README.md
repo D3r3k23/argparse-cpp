@@ -37,11 +37,10 @@ int Main(Argv argv)
     ParsedArgs args = parser.parse(argv);
     
     std::string arg1 = args["arg1"];
-    int opt2 = args["opt2"];
     
     if (args["opt1"])
     {
-    
+        int opt2 = args["opt2"];
     }
 
     return 0;
