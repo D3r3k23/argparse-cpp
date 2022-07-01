@@ -19,20 +19,30 @@ int Main(Argv argv)
     parser.add_help();
 
     parser.add(Argument("arg1")
-        .type<std::string>()
         // .action(argparse.Store) by default
+        .type<std::string>()
         .help("First argument")
     );
     parser.add(Argument("--opt1")
         .alias("-o")
-        // .type<std::string>() by default
         .action(argparse.StoreTrue)
+        // .type<std::bool>() by default
         .help("Optional argument")
     );
     parser.add(Argument("--opt2")
         .type<int>()
         .base(10) // default value
     );
+    
+    ParsedArgs args = parser.parse(argv);
+    
+    std::string arg1 = args["arg1"];
+    int opt2 = args["opt2"];
+    
+    if (args["opt1"])
+    {
+    
+    }
 
     return 0;
 }
